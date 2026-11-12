@@ -1,0 +1,98 @@
+; ==========================================================================
+;  CHEESE & ONION - LEVEL 1-2: MUMBLES MINES
+; ==========================================================================
+;
+;  One character = one 16x16 tile. Every section is 15 rows tall.
+;  Rows 0-1 sit behind the HUD. Ground is usually rows 13-14.
+;
+;  TERRAIN                            BLOCKS & ITEMS
+;  .  empty                           ?  Salt Block: onion
+;  #  ground                          M  Salt Block: Cracker (Chilli if big)
+;  X  solid block                     *  Salt Block: Golden Crisp
+;  B  brick (big Cheese breaks it)    U  Salt Block: Lucky Onion (1UP)
+;  G  cheese grater (like a pipe)     $  brick holding 10 onions
+;  E  enterable grater top (needs     h  hidden block: onion
+;     an @warp line; mark both cols)  u  hidden block: 1UP
+;  T  treetop platform                o  floating onion
+;  |  tree trunk (scenery)
+;  -  moving platform, horizontal     ENEMIES
+;  ^  moving platform, vertical       g  Grunt        j  Hopper
+;  L  lava                            k  Shell-back   f  Flinger
+;  =  bridge (collapses at the end)   W  Reptilian Overlord (boss)
+;  F  fire bar (rotating)
+;  /  chain (scenery)                 MARKERS
+;                                     S  start   P  flagpole base
+;                                     H  picnic hut (bottom-left tile)
+;                                     A  boss lever
+;
+;  METADATA
+;  @name <text>            shown on the intro card
+;  @theme <overworld|underground|sky|castle>
+;  @music <overworld|underground|sky|castle|boss>  (defaults to the theme)
+;  @time <n>               countdown start
+;  @checkpoint <x>,<y>     after passing column x, respawn at tile x,y
+;  @warp <sec>:<col> -> <sec>:<x>,<y>
+;                          pressing down on the enterable grater at column col
+;                          takes you to tile x,y of another section; if that tile
+;                          sits on an E grater top you rise out of it
+;  [name theme]            starts a section; [main] is where the level begins
+;
+
+@name Mumbles Mines
+@theme underground
+@time 400
+@checkpoint 94,12
+@warp main:72 -> vault:2,1
+@warp vault:16 -> main:100,10
+@warp main:170 -> exit:2,10
+
+[main]
+................................................................................................................................................................................
+................................................................................................................................................................................
+B.....BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB................
+B........................................................oooooooooo.................................................................................................XXXXXXXXXXXX
+B..............................................................................................................ooooo................................................XXXXXXXXXXXX
+B.............................................................................................................BBBBBBB............................oooo...............XXXXXXXXXXXX
+B...................................................................................................................................................................XXXXXXXXXXXX
+B...................................oooooooo....................................g..g................................................................................XXXXXXXXXXXX
+B.................................BBMBBBB$BBBB................................BBBBBBB.......u.................................................................................XX
+B.........??M??...............X......................o...BBBB?BBBBB....................hhh..............B?BB*.................f.....GG.....................BBMBB..............XX
+B...........................X.X.....................o.o.................EE...............................................o....GG....GG....f.......^^..........................XX
+B.........................X.X.X.........................................GG..........................EE........................GG....GG....GG..............................EE..XX
+B..S..............g.g...X.X.X.X........k.....................g.g........GG........................k.GG..........g.g..g........GG....GG..g.GG....................k.........GG..XX
+####################################################...#################################################################...#####################.......#########################
+####################################################...#################################################################...#####################.......#########################
+
+[vault underground]
+....................
+B..BBBBBBBBBBBBBBBBB
+B..................B
+B..................B
+B..................B
+B...ooooooooooo....B
+B..................B
+B...ooooooooooo....B
+B..BBBBBB$BBBBBB...B
+B..................B
+B..oooooooooooo....B
+B..oooooooooooo.EE.B
+B...............GG.B
+####################
+####################
+
+[exit overworld]
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+........................
+.........XX.............
+........XXX.............
+..EE...XXXX.............
+..GG..XXXXX...P...H.....
+########################
+########################

@@ -1,0 +1,62 @@
+; ==========================================================================
+;  CHEESE & ONION - LEVEL 1-4: THE LIZARD LAIR
+; ==========================================================================
+;
+;  One character = one 16x16 tile. Every section is 15 rows tall.
+;  Rows 0-1 sit behind the HUD. Ground is usually rows 13-14.
+;
+;  TERRAIN                            BLOCKS & ITEMS
+;  .  empty                           ?  Salt Block: onion
+;  #  ground                          M  Salt Block: Cracker (Chilli if big)
+;  X  solid block                     *  Salt Block: Golden Crisp
+;  B  brick (big Cheese breaks it)    U  Salt Block: Lucky Onion (1UP)
+;  G  cheese grater (like a pipe)     $  brick holding 10 onions
+;  E  enterable grater top (needs     h  hidden block: onion
+;     an @warp line; mark both cols)  u  hidden block: 1UP
+;  T  treetop platform                o  floating onion
+;  |  tree trunk (scenery)
+;  -  moving platform, horizontal     ENEMIES
+;  ^  moving platform, vertical       g  Grunt        j  Hopper
+;  L  lava                            k  Shell-back   f  Flinger
+;  =  bridge (collapses at the end)   W  Reptilian Overlord (boss)
+;  F  fire bar (rotating)
+;  /  chain (scenery)                 MARKERS
+;                                     S  start   P  flagpole base
+;                                     H  picnic hut (bottom-left tile)
+;                                     A  boss lever
+;
+;  METADATA
+;  @name <text>            shown on the intro card
+;  @theme <overworld|underground|sky|castle>
+;  @music <overworld|underground|sky|castle|boss>  (defaults to the theme)
+;  @time <n>               countdown start
+;  @checkpoint <x>,<y>     after passing column x, respawn at tile x,y
+;  @warp <sec>:<col> -> <sec>:<x>,<y>
+;                          pressing down on the enterable grater at column col
+;                          takes you to tile x,y of another section; if that tile
+;                          sits on an E grater top you rise out of it
+;  [name theme]            starts a section; [main] is where the level begins
+;
+
+@name The Lizard Lair
+@theme castle
+@time 300
+@checkpoint 60,12
+@boss true
+
+[main]
+..............................................................................................................................................
+..............................................................................................................................................
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+............................XXXXXXXX................................................................................XXXXXXXXXXXXXXXX........XX
+............................XXXXXXXX................................................................................XXXXXXXXXXXXXXXX........XX
+............................XXXXXXXX............................................ooooooo.....................................................XX
+...........................................F...o............................................................................................XX
+............................................................................................................................................XX
+.......................................o...................................f.........---....................................................XX
+..S...................F........k.............X......?M?........F....F....XXXX.........................?*......................W..../..A.....XX
+XXXXX.......................XXXXXXXX.....X...X...........................XXXX..---........XXX..............FXXXXXXXX================XXXXXXXXXX
+XXXXX.......................XXXXXXXX.....X...X...........................XXXX.............XXX...............XXXXXXXX................XXXXXXXXXX
+XXXXX....................g..XXXXXXXX.....X...X...........j........g....k.XXXX.............XXX...k..j........XXXXXXXX................XXXXXXXXXX
+##############LLL#####################LLLXLLLXLLL############################LLLLLLLLLLLLL######################XXXXLLLLLLLLLLLLLLLLXXXXXXXXXX
+##############LLL#####################LLLXLLLXLLL############################LLLLLLLLLLLLL######################XXXXLLLLLLLLLLLLLLLLXXXXXXXXXX
