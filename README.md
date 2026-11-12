@@ -17,9 +17,14 @@ npm run dev        # http://localhost:5173
 npm run build      # type-check + static site in dist/
 npm run preview    # serve dist/ locally
 npm run typecheck
+npm run deploy     # build and publish to GitHub Pages
 ```
 
 `dist/` is plain static files with relative paths, so it can be served from any folder.
+
+Play it online: <https://lewshreads-droid.github.io/cheeseandonion/>. `npm run deploy`
+builds the game and force-pushes `dist/` to the `gh-pages` branch, which GitHub Pages
+serves. That branch only ever holds the latest build, so redeploy after pushing changes.
 
 ## Controls
 
